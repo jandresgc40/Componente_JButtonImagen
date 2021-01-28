@@ -26,7 +26,7 @@ public class Mostrar_Datos extends javax.swing.JDialog {
         String dni = "77777777A";
         String fechaNacimiento = "13-05-1997";
         String direccion = "Calle Uría 37";
-        String telefonoContacto = "777777777";
+        String telefonoContacto = "677577121";
         Curriculum curriculumEjemplo = new Curriculum(nombre, dni, fechaNacimiento, direccion, telefonoContacto);
           
         LogicaNegocio.aniadirCurriculum(curriculumEjemplo);
@@ -43,7 +43,7 @@ public class Mostrar_Datos extends javax.swing.JDialog {
         jLabelNombre.setText(listaCurriculums.get(0).getNombre());
         jLabelDNI.setText(listaCurriculums.get(0).getDni());
         jLabelFechaNacimiento.setText(listaCurriculums.get(0).getFechaNacimiento());
-        jLabelDireccion.setText(listaCurriculums.get(0).getNombre());
+        jLabelDireccion.setText(listaCurriculums.get(0).getDireccion());
         jLabelTelefono.setText(listaCurriculums.get(0).getTelefonoContacto());
 
         

@@ -6,6 +6,7 @@
 package GUI;
 
 import datos.Curriculum;
+import java.util.List;
 import logica_negocio.LogicaNegocio;
 
 /**
@@ -20,6 +21,21 @@ public class Introducir_Datos extends javax.swing.JDialog {
     public Introducir_Datos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        refrescarDatos();
+        
+    }
+    
+    public void refrescarDatos() {
+    
+        List <Curriculum> listaCurriculums = LogicaNegocio.getListaCurriculums();
+        
+        jTextFieldNombre.setText(listaCurriculums.get(0).getNombre());
+        jTextFieldDNI.setText(listaCurriculums.get(0).getDni());
+        jTextFieldFecha.setText(listaCurriculums.get(0).getFechaNacimiento());
+        jTextFieldDireccion.setText(listaCurriculums.get(0).getDireccion());
+        jTextFieldTelefono.setText(listaCurriculums.get(0).getTelefonoContacto());
+    
     }
 
     /**
