@@ -5,6 +5,15 @@
  */
 package GUI;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
+
 /**
  *
  * @author Ovejo
@@ -16,6 +25,33 @@ public class Pantalla_Principal extends javax.swing.JFrame {
      */
     public Pantalla_Principal() {
         initComponents();
+        ponLaAyuda();
+        
+        
+    }
+    
+    public void ponLaAyuda() {
+    
+       try {
+           
+            File fichero = new File("E:/diseno_interfaces/Componente_JButtonImagen/jbuttonimagen/1_JavaHelpExample/help/help_set.hs");
+            URL hsURL = fichero.toURI().toURL();
+            
+            HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+            HelpBroker hb = helpset.createHelpBroker();
+
+            hb.enableHelpOnButton(jMenuItemAyuda, "aplicacion", helpset);
+            hb.enableHelpKey(getRootPane(), "aplicacion", helpset);
+            
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    // Crea el HelpSet
+ 
+        
+    
     }
 
     /**
